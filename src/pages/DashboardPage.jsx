@@ -1358,6 +1358,7 @@ export default function DashboardPage() {
                       let headerClass = c === 'Estado' ? "sortable text-left align-top w-24" : "sortable text-left align-top";
                       if (c === 'ID Publicación') headerClass += " max-w-[150px]";
                       if (c === 'Orden de Compra') headerClass += " max-w-[80px]";
+                      if (c === 'Respaldo') headerClass += " min-w-[200px] w-[200px]";
 
                       const onClickHandler = () => handleSort(c);
 
@@ -1413,20 +1414,20 @@ export default function DashboardPage() {
                             const hasFacFile = row.hasFacturaFile;
                             const hasOcFile = row.hasOcFile;
                             return (
-                              <td key={c} className="px-3 py-2 text-[12px] text-gray-700 min-w-[150px]">
+                              <td key={c} className="px-3 py-2 text-[12px] text-gray-700 min-w-[220px] w-[220px]">
                                 <div className="flex flex-col gap-1.5">
                                   <div className="flex items-center gap-2">
                                     {fac ? (
                                       <button
                                         onClick={() => hasFacFile ? handlePreview(itemId, 'factura') : null}
-                                        className={`flex items-center gap-1.5 transition-colors ${hasFacFile ? 'text-[#006BB9] hover:text-blue-800 text-[11px] font-bold cursor-pointer' : 'text-gray-500 text-[11px] font-bold cursor-default'}`}
+                                        className={`flex items-center gap-1.5 transition-colors whitespace-nowrap ${hasFacFile ? 'text-[#006BB9] hover:text-blue-800 text-[11px] font-bold cursor-pointer' : 'text-gray-500 text-[11px] font-bold cursor-default'}`}
                                         title={hasFacFile ? `Ver Factura ${fac}` : `Factura: ${fac} (Sin archivo)`}
                                       >
-                                        <FileText size={12} /> FACTURA N° {fac}
+                                        <FileText size={12} className="shrink-0" /> FACTURA N° {fac}
                                       </button>
                                     ) : (
-                                      <span className="flex items-center gap-1 text-amber-700 text-[10px] font-bold uppercase" title="Falta Factura">
-                                        <AlertCircle size={10} /> Sin Factura
+                                      <span className="flex items-center gap-1 text-amber-700 text-[10px] font-bold uppercase whitespace-nowrap" title="Falta Factura">
+                                        <AlertCircle size={10} className="shrink-0" /> Sin Factura
                                       </span>
                                     )}
                                   </div>
@@ -1434,14 +1435,14 @@ export default function DashboardPage() {
                                     {oc ? (
                                       <button
                                         onClick={() => hasOcFile ? handlePreview(itemId, 'oc') : null}
-                                        className={`flex items-center gap-1.5 transition-colors ${hasOcFile ? 'text-emerald-700 hover:text-emerald-900 text-[11px] font-bold cursor-pointer' : 'text-gray-500 text-[11px] font-bold cursor-default'}`}
+                                        className={`flex items-center gap-1.5 transition-colors whitespace-nowrap ${hasOcFile ? 'text-emerald-700 hover:text-emerald-900 text-[11px] font-bold cursor-pointer' : 'text-gray-500 text-[11px] font-bold cursor-default'}`}
                                         title={hasOcFile ? `Ver OC ${oc}` : `OC: ${oc} (Sin archivo)`}
                                       >
-                                        <FileText size={12} /> OC N° {oc}
+                                        <FileText size={12} className="shrink-0" /> OC N° {oc}
                                       </button>
                                     ) : (
-                                      <span className="flex items-center gap-1 text-amber-700 text-[10px] font-bold uppercase" title="Falta Orden de Compra">
-                                        <AlertCircle size={10} /> Sin OC
+                                      <span className="flex items-center gap-1 text-amber-700 text-[10px] font-bold uppercase whitespace-nowrap" title="Falta Orden de Compra">
+                                        <AlertCircle size={10} className="shrink-0" /> Sin OC
                                       </span>
                                     )}
                                   </div>
